@@ -16,7 +16,7 @@ const OrderSchema = new mongoose.Schema(
     products: [
       {
         id: {
-          type: number,
+          type: Number,
           required: true,
         },
         name: {
@@ -24,7 +24,7 @@ const OrderSchema = new mongoose.Schema(
           required: true,
         },
         price: {
-          type: number,
+          type: Number,
           required: true,
         },
         category: {
@@ -36,7 +36,7 @@ const OrderSchema = new mongoose.Schema(
           required: true,
         },
         quantity: {
-          type: number,
+          type: Number,
           required: true,
         },
       },
