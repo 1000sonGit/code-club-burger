@@ -74,6 +74,30 @@ class OrderController {
 
     return response.json(orders)
   }
+
+  async update(request, response) {
+    const schema = Yup.object().shape({
+      status: Yup.string().required(),
+    })
+
+    // await schema.isValid(request.body)
+    try {
+      await schema.validateSync(request.body, { abortEarly: false })
+    } catch (err) {
+      return response.status(400).json({ error: err.errors })
+    }
+
+    const { id } = request.params
+    const { status } = request.body
+
+    try {
+      await Order.updateOne({ _id: id }, { status })
+    } catch (error) {
+      return response.status(400).json({ error: error.message })
+    }
+
+    return response.json({ message: 'Status was updated' })
+  }
 }
 
 export default new OrderController()
