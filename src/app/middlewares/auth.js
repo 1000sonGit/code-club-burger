@@ -23,5 +23,5 @@ export default (request, response, next) => {
   } catch (error) {
     return response.status(401).json({ error: 'Token is invalid' })
   }
-  console.log(authToken)
+  
 }

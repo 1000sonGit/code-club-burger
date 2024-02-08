@@ -15,7 +15,7 @@ class SessionController {
         .status(400)
         .json({ error: 'Make sure yout password ou email are correct' })
     }
-
+    console.log(request.body)
     if (!(await schema.isValid(request.body))) userEmailOrPasswordIncorrect()
 
     const { email, password } = request.body
