@@ -6,7 +6,7 @@ import cors from 'cors'
 import './database'
 
 const corsOptions = {
-  origin: 'https://code-burger-interface-three.vercel.app/',
+  origin: 'https://code-burger-interface-three.vercel.app',
   credentials: true,
 }
 
