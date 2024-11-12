@@ -5,15 +5,21 @@ import cors from 'cors'
 
 import './database'
 
-// const corsOptions = {
-//   origin: 'https://code-burger-interface-three.vercel.app',
-//   credentials: true,
-// }
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || process.env.NODE_ENV === 'development') { // Permitir todas as origens em desenvolvimento
+      callback(null, true)
+    } else {
+      callback(null, false)  // Bloquear credenciais de origens diferentes
+    }
+  },
+  credentials: true,
+}
 
 class App {
   constructor() {
     this.app = express()
-    this.app.use(cors())
+    this.app.use(cors(corsOptions))
 
     this.middlewares()
     this.routes()    
