@@ -6,12 +6,8 @@ import cors from 'cors'
 import './database'
 
 const corsOptions = {
-  //matching all API routes
-  source: '/:path*',
-  headers: [
-    { key: 'Access-Control-Allow-Credentials', value: 'true'},
-    { key: 'Access-Control-Allow-Origin', value: '*'}
-  ]
+  origin: '*',
+  credentials: true,
 }
 
 class App {
