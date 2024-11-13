@@ -6,13 +6,7 @@ import cors from 'cors'
 import './database'
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || process.env.NODE_ENV === 'development') { // Permitir todas as origens em desenvolvimento
-      callback(null, true)
-    } else {
-      callback(null, false)  // Bloquear credenciais de origens diferentes
-    }
-  },
+  origin: 'https://vercel.live',
   credentials: true,
 }
 
